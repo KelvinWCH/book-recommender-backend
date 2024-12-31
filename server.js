@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 });
 
 const corsSETTINGS = {
-  origin: 'https://book-recommender.pages.dev/',
+  origin: 'https://book-recommender.pages.dev',
   methods: ['GET', 'POST'], 
   credentials: true, 
 };

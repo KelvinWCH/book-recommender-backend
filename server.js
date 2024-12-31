@@ -27,7 +27,9 @@ const openai = new OpenAI({
 });
 
 
-app.use(cors()); // OPEN UP ALL THE ROUTES!! SAIL THE SEVEN SEAS
+
+
+
 app.use(express.json());
 
 // Routes
@@ -35,7 +37,12 @@ app.get('/', (req, res) => {
   res.send('Backend is running');
 });
 
-
+const corsSETTINGS = {
+  origin: 'https://book-recommender.pages.dev/',
+  methods: ['GET', 'POST'], 
+  credentials: true, 
+};
+app.use(cors(corsSETTINGS)); // OPEN UP ALL THE ROUTES!! SAIL THE SEVEN SEAS
 //testing 
 function handleTestRequest(request, res) {
   res.send("whats up gang");

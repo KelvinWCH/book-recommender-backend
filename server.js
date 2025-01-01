@@ -23,6 +23,7 @@ const corsSETTINGS = {
       : 'https://book-recommender.pages.dev', // production origin
   methods: ['GET', 'POST'],
   credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 // Middleware

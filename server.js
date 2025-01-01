@@ -8,7 +8,7 @@ const firebaseBackend = require('./firebaseBackend.js');
 require('dotenv').config();
 
 const app = express();
-//const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 
 const openai = new OpenAI({
@@ -17,7 +17,7 @@ const openai = new OpenAI({
 
 // CORS Settings
 const corsSETTINGS = {
-  origin: 'https://book-recommender.pages.dev/',
+  origin: 'https://book-recommender.pages.dev',
   methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
   allowedHeaders: '*',
   exposedHeaders: ['Content-Length', 'X-JSON'], 

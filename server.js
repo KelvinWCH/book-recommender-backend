@@ -57,12 +57,13 @@ app.post('/generateJWT', (req, res) => {
 // Token Authenticator Middleware
 function authenticateToken(req, res, next) {
   // Bypass authentication for /generateJWT
-  if (req.path === '/generateJWT') {
-    return next();
-  }
   if (req.method === 'OPTIONS') {
     return next();
   }
+  if (req.path === '/generateJWT') {
+    return next();
+  }
+ 
   try {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];

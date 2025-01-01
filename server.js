@@ -24,11 +24,12 @@ const corsSETTINGS = {
   credentials: true, 
 };
 
-// Middleware
-app.use(express.json());
-app.use(authenticateToken);
 app.use(cors(corsSETTINGS));
 app.options('*', cors(corsSETTINGS));
+app.use(express.json());
+app.use(authenticateToken);
+
+
 
 // Routes
 app.get('/', (req, res) => {

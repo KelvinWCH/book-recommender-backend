@@ -17,13 +17,10 @@ const openai = new OpenAI({
 
 // CORS Settings
 const corsSETTINGS = {
-  origin:
-    process.env.DEVELOPMENT_MODE === 'true'
-      ? 'http://localhost:3000' // development origin
-      : 'https://book-recommender.pages.dev', // production origin
+  origin: ['https://book-recommender.pages.dev'],
   methods: ['GET', 'POST'],
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization'], 
 };
 
 // Middleware

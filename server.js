@@ -17,7 +17,7 @@ const openai = new OpenAI({
 
 // CORS Settings
 const corsSETTINGS = {
-  origin: 'https://book-recommender.pages.dev',
+  origin: "*",
   methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
   allowedHeaders: '*',
   exposedHeaders: ['Content-Length', 'X-JSON'], 
@@ -54,7 +54,7 @@ app.post('/generateJWT', (req, res) => {
 // Token Authenticator Middleware
 function authenticateToken(req, res, next) {
   // Bypass authentication for /generateJWT
-  if (req.path === '/generateJWT' || req.path === '/generateBook') {
+  if (req.path === '/generateJWT') {
     return next();
   }
 

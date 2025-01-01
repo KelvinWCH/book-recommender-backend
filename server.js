@@ -17,16 +17,16 @@ const openai = new OpenAI({
 
 // CORS Settings
 const corsSETTINGS = {
-  origin: ['https://book-recommender.pages.dev'],
-  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-  allowedHeaders: '*', // Allow all headers
-  exposedHeaders: ['Content-Length', 'X-JSON'], // Expose specific headers
+  origin: 'https://book-recommender.pages.dev',
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: '*',
+  exposedHeaders: ['Content-Length', 'X-JSON'], 
 };
 
 // Middleware
 app.use(express.json());
 app.use(authenticateToken);
-app.use(cors(corsSETTINGS));
+//app.use(cors(corsSETTINGS));
 
 // Routes
 app.get('/', (req, res) => {

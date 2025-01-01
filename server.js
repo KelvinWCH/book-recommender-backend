@@ -17,12 +17,13 @@ const openai = new OpenAI({
 
 // CORS Settings
 const corsSETTINGS = {
-  origin: 'https://book-recommender.pages.dev',
-  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-  allowedHeaders: '*',
-  exposedHeaders: ['Content-Length', 'X-JSON'], 
+  origin: ['https://book-recommender.pages.dev', 'http://localhost:3000'], 
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], 
+  exposedHeaders: ['Content-Length', 'X-JSON'],
   credentials: true, 
 };
+
 
 app.use(cors(corsSETTINGS));
 app.options('*', cors(corsSETTINGS));

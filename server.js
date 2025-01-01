@@ -18,7 +18,7 @@ const openai = new OpenAI({
 // CORS Settings
 const corsSETTINGS = {
   origin: 'https://book-recommender.pages.dev',
-  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
   allowedHeaders: '*',
   exposedHeaders: ['Content-Length', 'X-JSON'], 
 };
@@ -26,7 +26,7 @@ const corsSETTINGS = {
 // Middleware
 app.use(express.json());
 app.use(authenticateToken);
-//app.use(cors(corsSETTINGS));
+app.use(cors(corsSETTINGS));
 
 // Routes
 app.get('/', (req, res) => {

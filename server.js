@@ -60,7 +60,9 @@ function authenticateToken(req, res, next) {
   if (req.path === '/generateJWT') {
     return next();
   }
-
+  if (req.method === 'OPTIONS') {
+    return next();
+  }
   try {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];
@@ -72,7 +74,6 @@ function authenticateToken(req, res, next) {
     // Verify token
     jwt.verify(token, process.env.JWT_KEY, (err) => {
       if (err) {
-        // If token is invalid, respond once and return
         return res.status(403).json({ error: 'Invalid token' });
       }
       next();

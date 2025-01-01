@@ -54,7 +54,7 @@ app.post('/generateJWT', (req, res) => {
 // Token Authenticator Middleware
 function authenticateToken(req, res, next) {
   // Bypass authentication for /generateJWT
-  if (req.path === '/generateJWT') {
+  if (req.path === '/generateJWT' || req.path === '/generateBook') {
     return next();
   }
 

@@ -18,9 +18,9 @@ const openai = new OpenAI({
 // CORS Settings
 const corsSETTINGS = {
   origin: ['https://book-recommender.pages.dev'],
-  methods: ['GET', 'POST'],
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'], 
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+  allowedHeaders: '*', // Allow all headers
+  exposedHeaders: ['Content-Length', 'X-JSON'], // Expose specific headers
 };
 
 // Middleware

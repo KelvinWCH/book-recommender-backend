@@ -8,7 +8,7 @@ const firebaseBackend = require('./firebaseBackend.js');
 require('dotenv').config();
 
 const app = express();
-const PORT = 5000;
+//const PORT = 5000;
 
 
 const openai = new OpenAI({
@@ -67,7 +67,7 @@ function authenticateToken(req, res, next) {
     }
 
     // Verify token
-    jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
+    jwt.verify(token, process.env.JWT_KEY, (err) => {
       if (err) {
         // If token is invalid, respond once and return
         return res.status(403).json({ error: 'Invalid token' });
